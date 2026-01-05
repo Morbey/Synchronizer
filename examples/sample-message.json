@@ -1,0 +1,21 @@
+{
+  "id": "msg-sample-001",
+  "type": "USER_REGISTERED",
+  "payload": {
+    "userId": "USR-2026-001",
+    "email": "user@example.com",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "registeredAt": "2026-01-05T18:15:00",
+    "accountType": "PREMIUM"
+  },
+  "source": "registration-service",
+  "timestamp": "2026-01-05T18:15:00",
+  "priority": 5,
+  "metadata": {
+    "correlationId": "reg-flow-12345",
+    "requestId": "req-67890",
+    "ipAddress": "192.168.1.100",
+    "userAgent": "Mozilla/5.0"
+  }
+}

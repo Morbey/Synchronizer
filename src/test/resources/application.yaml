@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: synchronizer-test
+  
+  # Use H2 in-memory database for tests
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  
+  # Liquibase disabled for tests (using ddl-auto instead)
+  liquibase:
+    enabled: false
+  
+  # Kafka test configuration
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        messageConsumer-in-0:
+          destination: test-messages
+        messageProducer-out-0:
+          destination: test-messages
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.synchronizer: DEBUG
