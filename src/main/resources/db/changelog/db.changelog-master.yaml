@@ -1,0 +1,98 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: synchronizer
+      changes:
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: db_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: message_id
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payload
+                  type: TEXT
+              - column:
+                  name: source
+                  type: VARCHAR(255)
+              - column:
+                  name: timestamp
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: priority
+                  type: INT
+              - column:
+                  name: metadata
+                  type: TEXT
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: processed_at
+                  type: TIMESTAMP
+              - column:
+                  name: status
+                  type: VARCHAR(50)
+
+  - changeSet:
+      id: 2
+      author: synchronizer
+      changes:
+        - createIndex:
+            indexName: idx_message_type
+            tableName: messages
+            columns:
+              - column:
+                  name: type
+
+  - changeSet:
+      id: 3
+      author: synchronizer
+      changes:
+        - createIndex:
+            indexName: idx_message_timestamp
+            tableName: messages
+            columns:
+              - column:
+                  name: timestamp
+
+  - changeSet:
+      id: 4
+      author: synchronizer
+      changes:
+        - createIndex:
+            indexName: idx_message_source
+            tableName: messages
+            columns:
+              - column:
+                  name: source
+
+  - changeSet:
+      id: 5
+      author: synchronizer
+      changes:
+        - createIndex:
+            indexName: idx_message_status
+            tableName: messages
+            columns:
+              - column:
+                  name: status
