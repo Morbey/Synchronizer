@@ -1,0 +1,15 @@
+apiVersion: v2
+name: synchronizer
+description: A Helm chart for Synchronizer - Kafka message synchronizer
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - kafka
+  - synchronizer
+  - messaging
+  - java
+home: https://github.com/Morbey/Synchronizer
+maintainers:
+  - name: Synchronizer Team
+    email: support@synchronizer.com
